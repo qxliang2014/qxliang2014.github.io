@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="d8JsBHHQgZ">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -221,7 +222,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>15k</span>
+              <span>16k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -263,17 +264,17 @@ $$</p>
 \mathfrak{L}{\delta(t-\tau)}=\int_{0^-}^\infty\delta(t-\tau)e^{-st}dt=\int_{-\infty}^\infty\delta(t-\tau)e^{-st}dt=e^{-s\tau}<br>
 $$</p>
 <p>需要指出，因为上面被积函数除了t=$\tau$$\ge$0这一个点外处处为0，所以开区间($\infty$，0）的定积分贡献为0，上式中两个积分上下限不同的定积分相等。显然，当$\tau=0$时，它的结果等于1，具体见<a target="_blank" rel="noopener" href="https://personal.psu.edu/sxt104/class/Math251/Notes-LT3.pdf">参考资料</a>。</p>
-<p>狄拉克$\delta$分布在概率论、结构力学甚至量子力学里都有重要应用，详见<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Dirac_delta_function#cite_note-18">wiki</a>。<br>
+<p>狄拉克$\delta$分布在概率论、结构力学直至量子力学里都有重要应用，详见<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Dirac_delta_function#cite_note-18">wiki</a>。<br>
 如同学习经典力学开头时用到的质点模型，在电磁学里我们直观地接受和应用了点电荷模型，实际上它有深刻的数学基础支撑。假设空间中某一区域有<em>N</em>个离散的点电荷，那么其电荷密度可以用狄拉克$\delta$分布表达为（矢量和标量分别用粗体和斜体表示）：<br>
 $$<br>
 \rho(\boldsymbol{r})=\sum_{i=1}^Nq_i\delta(\boldsymbol{r}-\boldsymbol{r}_i)\qquad\qquad\qquad(1-1)<br>
 $$</p>
-<p>其中，<strong>r</strong>是检验位置（场点），$q_i$是位置为$\boldsymbol{r_i}$（源点）的第i个点电荷的电量。</p>
+<p>其中，$\boldsymbol{r}$是检验位置（场点），$q_i$是位置为$\boldsymbol{r_i}$（源点）的第i个点电荷的电量。</p>
 <h2 id="散度定理和电荷密度模型"><a class="header-anchor" href="#散度定理和电荷密度模型">¶</a>散度定理和电荷密度模型</h2>
 <hr>
 <p><img src="https://i.loli.net/2020/02/22/bJ9GlwP5f2Qi3yE.png" alt="charge.png"><br>
 图片来自维基百科</p>
-<p>表达式（1-1）里开始涉及到很“物理”也很基本的矢量和标量：位置矢量<strong>r</strong>、电荷密度$\rho$以及电量q，对这个等式两边取它在V上的定积分（这里是空间区域的三重积分或体积分），那么两部分的定积分应该相等。左边得到的就是经典定义下的总电量Q=$\int_\mathbb{V}\rho(\boldsymbol{r})dV$(dV就是$d^3$<strong>r</strong>或dxdydz)，右边部分的演算如下：</p>
+<p>表达式（1-1）里开始涉及到很“物理”也很基本的矢量和标量：位置矢量$\boldsymbol{r}$、电荷密度$\rho$以及电量q，对这个等式两边取它在$\mathbb{V}$上的定积分（这里是空间区域的三重积分或体积分），那么两部分的定积分应该相等。左边得到的就是经典定义下的总电量Q=$\int_\mathbb{V}\rho(\boldsymbol{r})dV$(dV就是$d^3$$\boldsymbol{r}$或dxdydz)，右边部分的演算如下：</p>
 <p>$$<br>
 \int_\mathbb{V}d^3\boldsymbol{r}\sum_{i=1}^Nq_i\delta(\boldsymbol{r}-{r_i})=\sum_{i=1}^Nq_i\int_\mathbb{V}d^3\boldsymbol{r}\delta(<br>
 \boldsymbol{r}-\boldsymbol{r_i})=\sum_{i=1}^Nq_i=Q<br>
@@ -287,7 +288,7 @@ $$</p>
 <p>$$<br>
 \sigma_b=\frac{dq_b}{dS}=\frac{d\boldsymbol{p}\cdot\boldsymbol{\hat{n}}}{\left|\boldsymbol{d}\right|dS}=\frac{d\boldsymbol{p}}{dV}\cdot\boldsymbol{\hat{n}}=\boldsymbol{P}\cdot\boldsymbol{\hat{n}}\qquad(2-1)<br>
 $$</p>
-<p>其中<strong>P</strong>(C/$m^2$)即为电介质区域内电极化强度，对式(2-1)两边取闭合曲面<strong>S</strong>（包围有界体积）上的积分推导得：</p>
+<p>其中<strong>P</strong>(C/$m^2$)即为电介质区域内电极化强度，对式(2-1)两边取闭合曲面$\mathbb{S}$（包围有界体积）上的积分推导得：</p>
 <p>$$<br>
 q_b=\oint_\mathbb{S}\sigma_bdS=-\oint_\mathbb{S}\boldsymbol{P}\cdot\boldsymbol{\hat{n}}dS=-\iiint_\mathbb{V}\nabla\cdot\boldsymbol{P}dV=\iiint_\mathbb{V}\rho_bdV\qquad(2-2)<br>
 $$</p>
@@ -323,7 +324,7 @@ $$</p>
 \oint_\mathbb{S}\boldsymbol{D}\cdot\boldsymbol{\hat{n}}dS=\iiint_\mathbb{V}\rho_fdV\iff\oint_\mathbb{S}\boldsymbol{D}\cdot<br>
 d\boldsymbol{S}=Q_f\qquad(3-4)<br>
 $$</p>
-<p>停下脚步来看式（3-4），它也可以写成囊括全部电荷密度分布的<strong>E</strong>的相容版本，不过现在更为精简。$\boldsymbol{\hat{n}}$是积分面积微元的单位法向量，$\boldsymbol{D}\cdot\boldsymbol{\hat{n}}$这个向量点积就是向量<strong>D</strong>在面积微元法向量方向的投影的大小，可以理解为通量密度。然后对它在整个闭合曲面<strong>S</strong>上做定积分得到矢量场<strong>D</strong>“流过”整个闭合曲面的通量，用$\Phi_D$表示，称为“电通量”，我们有理由相信它等于闭曲面包围的总的自由电荷电量$Q_f$。推而广之，通量密度的积分区域不必是包围一个体积的闭曲面，也可以是以闭曲线为界的光滑曲面。如果把通量看作是更基本的量，那么矢量场<strong>D</strong>就可以被称为电通量密度<strong>D</strong>。</p>
+<p>停下脚步来看式（3-4），它也可以写成囊括全部电荷密度分布的<strong>E</strong>的相容版本，不过现在更为精简。$\boldsymbol{\hat{n}}$是积分面积微元的单位法向量，$\boldsymbol{D}\cdot\boldsymbol{\hat{n}}$这个向量点积就是向量<strong>D</strong>在面积微元法向量方向的投影的大小，可以理解为通量密度。然后对它在整个闭合曲面$\mathbb{S}$上做定积分得到矢量场<strong>D</strong>“流过”整个闭合曲面的通量，用$\Phi_D$表示，称为“电通量”，我们有理由相信它等于闭曲面包围的总的自由电荷电量$Q_f$。推而广之，通量密度的积分区域不必是包围一个体积的闭曲面，也可以是以闭曲线为界的光滑曲面。如果把通量看作是更基本的量，那么矢量场<strong>D</strong>就可以被称为电通量密度<strong>D</strong>。</p>
 <p>在狭义相对论中，对一个电场运用洛伦兹变换将把它转换为一个磁场(<a target="_blank" rel="noopener" href="https://hepweb.ucsd.edu/ph110b/110b_notes/node69.html">参考链接</a>)，两者具有对偶性，因此磁场应当也具有通量密度这一属性，我们称之为磁通量密度，用<strong>B</strong>表示。对<strong>B</strong>求闭曲面上的积分就是求通过闭曲面的磁通量$\Phi$$_B$，依据式（2-2）它应当等于<strong>B</strong>的散度的体积分即$\iiint_\mathbb{V}\nabla\cdot\boldsymbol{B}$dV，由于目前还没发现磁单极子，磁通密度“线”都是从N极到S极闭合，因此：<br>
 $$<br>
 \oint_\mathbb{S}\boldsymbol{B}\cdot d\boldsymbol{S}=0\iff\nabla\cdot\boldsymbol{B}=0\qquad\qquad\qquad(3-5)<br>
@@ -418,7 +419,7 @@ $$</p>
 <p>电磁感应现象的发现主要是建立在法拉第本人大量天才和扎实的工作基础上，经过韦伯、纽曼、楞次等人的贡献，最后由麦克斯韦与法拉第相辅相成写进他伟大的方程组中。当人们发现了电磁感应规律后，便突然把理论和大量实际发展联系起来。</p>
 <p><img src="https://i.loli.net/2020/02/22/cPG8ATE6O4XwsF2.jpg" alt="favpngcom.jpg"></p>
 <p><a target="_blank" rel="noopener" href="http://xn--favpgn-os0kt79hnqu0x9a.com">图片来自favpgn.com</a></p>
-<p>前面用到$\mathbb{R^3}$空间矢量场的通量模型，现在再把一个称为“环量”的工具拿出来，类似于$\iint_S\boldsymbol{F}\cdot\boldsymbol{\hat{n}}dS$是矢量场在曲面法线方向上的分量$\boldsymbol{F}\cdot\boldsymbol{\hat{n}}$在空间曲面S(不必是闭曲面)上的积分。如图所示，“环量”是矢量场在曲面（$\Sigma$）边界（$\partial\Sigma$）的切向分量$\boldsymbol{F}\cdot\boldsymbol{\hat{r}}$在曲面边界上的积分，是一种曲线积分。斯托克斯公式<a href="#5">(5)</a>指出：$\mathbb{R^3}$空间上矢量场在曲面边界的线积分等于矢量场的旋度的曲面积分，写成：</p>
+<p>前面用到$\mathbb{R^3}$空间矢量场的通量模型，现在再把一个称为“环量”的工具拿出来，类似于$\iint_S\boldsymbol{F}\cdot\boldsymbol{\hat{n}}dS$是矢量场在曲面法线方向上的分量$\boldsymbol{F}\cdot\boldsymbol{\hat{n}}$在空间曲面$\mathbb{S}$(不必是闭曲面)上的积分。如图所示，“环量”是矢量场在曲面（$\Sigma$）边界（$\partial\Sigma$）的切向分量$\boldsymbol{F}\cdot\boldsymbol{\hat{r}}$在曲面边界上的积分，是一种曲线积分。斯托克斯公式<a href="#5">(5)</a>指出：$\mathbb{R^3}$空间上矢量场在曲面边界的线积分等于矢量场的旋度的曲面积分，写成：</p>
 <p>$$<br>
 \int_\mathbb{S}\nabla\times\boldsymbol{F}\cdot d\boldsymbol{S}=\oint_\mathbb{L}\boldsymbol{F}\cdot d\boldsymbol{\ell}<br>
 $$</p>
@@ -447,11 +448,11 @@ $$</p>
 <hr>
 <p><img src="https://i.loli.net/2020/02/22/oOl2z9ivJIEaSD6.png" alt="Continuity.png"></p>
 <p>图片来自维基百科</p>
-<p>俗语说“电生磁，磁生电”，我们继续在时变场的迷宫里走，如果顺利的话，不到处碰死胡同，走通了“电生磁”，大概率出口就在不远处。讲义里提到，磁场实际上是电的一种相对论效应，对此我们不打算走得太远，尽量靠近最常用的基本物理量电流$\mathrm{I}$（关键是电流密度<strong>J</strong>），以更为基本的电荷电流守恒为起点探寻。首先我们有孤立系统的连续性方程，用它来表达局域电荷守恒则为：</p>
+<p>俗语说“电生磁，磁生电”，我们继续在时变场的迷宫里走，如果顺利的话，不到处碰死胡同，走通了“电生磁”，大概率出口就在不远处。讲义里提到，磁场实际上是电的一种相对论效应，对此我们不打算走得太远，尽量靠近最常用的基本物理量电流$\mathrm{I}$（关键是电流密度$\boldsymbol{J}$)，以更为基本的电荷电流守恒为起点探寻。首先我们有孤立系统的连续性方程，用它来表达局域电荷守恒则为：</p>
 <p>$$<br>
 \frac{\partial{\rho}}{\partial t}+\nabla\cdot\boldsymbol{J}=0\qquad\qquad\qquad(6-1)<br>
 $$</p>
-<p>按照连续性方程，<strong>J</strong>应当是电荷电量q的流量密度（每单位面积每单位时间）的矢量函数，对式（6-1）进行移项再两边取自由空间体积分：</p>
+<p>按照连续性方程，$\boldsymbol{J}$应当是电荷电量q的流量密度（每单位面积每单位时间）的矢量函数，对式（6-1）进行移项再两边取自由空间体积分：</p>
 <p>$$<br>
 -\iiint_\mathbb{V}\frac{\partial{\rho}}{\partial t}dV=\iiint_\mathbb{V}\nabla\cdot\boldsymbol{J}dV<br>
 $$</p>
@@ -509,7 +510,7 @@ $$</p>
 <p>$$<br>
 \frac{1}{c^2}\frac{\partial^2 f}{\partial{t^2}}-\nabla^2 f=0<br>
 $$</p>
-<p>其中，f是任意<a href="https:%5Cbaike.baidu.com/item/%E8%89%AF%E6%80%81/22781480">良态函数</a>，它的一般解的形式是：$f(\boldsymbol{r},t)=g(\boldsymbol{k}\cdot\boldsymbol{r}-\omega t)$，其中<strong>r</strong>是位置矢量，t是时间，<strong>k</strong>是波矢，$\omega$是角频率。函数g描述一个波动，随着时间的演化，朝着<strong>k</strong>的方向传播于空间。经过一系列分析，可以猜到方程（6-3）和（6-4）的单色正弦平面波的解为：</p>
+<p>其中，$\boldsymbol{f}$是任意<a href="https:%5Cbaike.baidu.com/item/%E8%89%AF%E6%80%81/22781480">良态函数</a>，它的一般解的形式是：$f(\boldsymbol{r},t)=g(\boldsymbol{k}\cdot\boldsymbol{r}-\omega t)$，其中$\boldsymbol{r}$是位置矢量，t是时间，$\boldsymbol{k}$是波矢，$\omega$是角频率。函数$\boldsymbol{g}$描述一个波动，随着时间的演化，朝着$\boldsymbol{k}$的方向传播于空间。经过一系列分析，可以猜到方程（6-3）和（6-4）的单色正弦平面波的解为：</p>
 <p>$$<br>
 \boldsymbol{\tilde{E}}(\boldsymbol{r},t)=\boldsymbol{\tilde{E_0}}e^{i(\boldsymbol{k\cdot r}-\omega t)}<br>
 $$</p>
@@ -521,7 +522,7 @@ $$</p>
 \boldsymbol{k}\cdot\boldsymbol{\tilde{E_0}}=0\qquad和\qquad\boldsymbol{k}\cdot\boldsymbol{\tilde{B_0}}=0<br>
 $$</p>
 <p>上式揭示了电场和磁场垂直于波矢，波动传播的方向。因此，电磁波是横波。<br>
-运用法拉第电磁感应定律对波动方程的解进行复分析得出更多隐含信息：$\nabla\times\boldsymbol{\tilde{E}}=i\omega\boldsymbol{\tilde{B}}$，将角频率与波数的色散关系式$\omega$=ck代入：</p>
+运用法拉第电磁感应定律对波动方程的解进行复分析得出更多隐含信息：$\nabla\times\boldsymbol{\tilde{E}}=i\omega\boldsymbol{\tilde{B}}$，将角频率与波数的色散关系式$\omega$=c$\boldsymbol{k}$代入：</p>
 <p>$$<br>
 \tilde{B}=\frac{\boldsymbol{k}}{\omega}\times\boldsymbol{\tilde{E}}=\frac{1}{c}\boldsymbol{\hat k}\times\boldsymbol{\tilde{E}}<br>
 $$</p>
@@ -687,7 +688,7 @@ $$</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">24k</span>
+    <span title="站点总字数">25k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

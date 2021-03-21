@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="d8JsBHHQgZ">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -194,7 +195,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-21 15:45:24" itemprop="dateModified" datetime="2021-03-21T15:45:24+08:00">2021-03-21</time>
+                <time title="修改时间：2021-03-21 22:49:25" itemprop="dateModified" datetime="2021-03-21T22:49:25+08:00">2021-03-21</time>
               </span>
 
           
@@ -221,8 +222,7 @@
 
       
           <h2 id="前言"><a class="header-anchor" href="#前言">¶</a>前言</h2>
-<p>最近有搭建个人博客系统的需要，网上这类教程纷繁多样，本人的实现有些老套，在很旧的Ubuntu<br>
-12.04LTS系统中使用SSH，Git，Nodejs等工具搭建起不失美观的Hexo博客系统并托管于Github，以下写得尽量简明，以作备忘参考。</p>
+<p>最近有搭建个人博客系统的需要，搜索翻阅网上这类教程繁多，但是未必适用于本机早已过时的Ubuntu 12.04LTS系统。下面简要记录下使用SSH，Git，Nodejs等工具搭建起不失美观的Hexo博客系统并托管于Github的实现过程，表达尽量简明，以作备忘参考。</p>
 <h2 id="环境检查与准备"><a class="header-anchor" href="#环境检查与准备">¶</a>环境检查与准备</h2>
 <h3 id="Git"><a class="header-anchor" href="#Git">¶</a>Git</h3>
 <p>程序员利器，可以在终端用以下命令检查是否已安装:</p>
@@ -233,14 +233,14 @@
 <p>SSH是Ubuntu标配了，把主机作为SSH协议的本地客户端，而github作为远程服务器。因为采用基于密钥的安全认证，所以先执行以下命令创建一对密钥，分别位于<em><strong>～/.ssh/id_rsa，~/.ssh/id_rsa.pub</strong></em>，然后把其中的公有密钥放到github上自己的宿主目录中（详见下方）<br>
 <code>ssh-keygen -t rsa -b 4096 -C &quot;Github的注册邮箱地址&quot;</code><br>
 如果已经生成过密钥可按提示选择<strong>overwrite</strong>覆盖，另外需要添加以下内容到<em><strong>～/.ssh/config</strong></em>文件中（如果没有这个文件就新建一个）：</p>
-<blockquote></blockquote>
+<blockquote>
 <p>Host <a target="_blank" rel="noopener" href="http://github.com">github.com</a><br>
 User <a href="mailto:qxliang01@gmail.com">qxliang01@gmail.com</a>  //更改为你的github注册邮箱<br>
 Hostname <a target="_blank" rel="noopener" href="http://ssh.github.com">ssh.github.com</a><br>
 PreferredAuthentications publickey<br>
 IdentityFile ~/.ssh/id_rsa<br>
 Port 443</p>
-<blockquote></blockquote>
+</blockquote>
 <h3 id="Github"><a class="header-anchor" href="#Github">¶</a>Github</h3>
 <p>准备好Github的帐号并登录，然后在Github页面的右上方选择<strong>New repository</strong>新建一个仓库，在仓库名字输入框中输入：</p>
 <blockquote>
@@ -250,7 +250,7 @@ Port 443</p>
 另外，用记事本打开刚才获得的<em><strong>～/.ssh/id_rsa.pub</strong></em>，复制里面的全部内容，进入<br>
 <a target="_blank" rel="noopener" href="https://github.com/settings/ssh">https://github.com/settings/ssh</a>，将复制的内容粘贴到<strong>Key</strong>的输入框,点击<strong>Add SSH key</strong>按钮即可。</p>
 <h3 id="Node-js"><a class="header-anchor" href="#Node-js">¶</a>Node.js</h3>
-<p>Hexo程序是基于Node.js的，鉴于Node.js的多版本问题，较好的方式是先下载安装Node.js多版本管理工具NVM，然后用NVM安装稳定版本的Node.js。<br>
+<p>Hexo程序是基于Node.js实现的，鉴于Node.js的多版本问题，较好的方式是先下载安装Node.js多版本管理工具NVM，然后用NVM安装稳定版本的Node.js。<br>
 <code>curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | sh</code><br>
 <code>nvm install stable</code></p>
 <p>但是依次执行这两个命令会踩到坑，可能提示没找到命令，这就需要配置并激活一下nvm的环境变量：</p>
@@ -290,19 +290,21 @@ branch: master</p>
 <p><code>ssh -T -p 443 git@github.com</code><br>
 如果提示是否继续连接，就敲“yes”，出现：</p>
 <blockquote>
-<p>Hi qxliang2014! You’ve successfully<br>
-authenticated, but GitHub does not provide shell access</p>
+<p>Hi qxliang2014! You’ve successfully authenticated, but GitHub does not provide shell access</p>
 </blockquote>
-<p>就说明成功了。否则，可能还要修改***/etc/ssh/ssh_config***配置文件，查看端口是否为默认值，并把报错的配置项用#号注释掉。</p>
+<p>就说明成功了。否则，可能还要修改<em><strong>etc/ssh/ssh_config</strong></em>配置文件，查看端口是否为默认值，并把报错的配置项用#号注释掉。</p>
 <h2 id="🎉开始创作发布个人技术博客"><a class="header-anchor" href="#🎉开始创作发布个人技术博客">¶</a>🎉开始创作发布个人技术博客!</h2>
 <p>新建一篇博文：</p>
 <p><code>hexo new post &quot;mypost1&quot;</code><br>
-这样就在博客文件夹的***/source/_posts/***生成了一个mypost1.md文件，用很赞🌟的Markdown语法来编辑生产，完成后再用<code>hexo g</code>、<code>hexo d</code>推送到github。</p>
+这样就在博客文件夹的<em><strong>source/_posts</strong></em>下生成了一个<em><strong><a target="_blank" rel="noopener" href="http://mypost1.md">mypost1.md</a></strong></em>文件，用很赞🌟的Markdown语法来编辑生产，完成后再用<code>hexo g</code>、<code>hexo d</code>推送到github。</p>
 <p>最后就可以在浏览器上输入：username.github.io来访问个人博客了！</p>
 <h3 id="温馨提示"><a class="header-anchor" href="#温馨提示">¶</a>温馨提示</h3>
 <p>如果上面有个别命令执行出现错误，那么换用root权限（sudo)试试看。</p>
 <h2 id="参考文章"><a class="header-anchor" href="#参考文章">¶</a>参考文章</h2>
 <ul>
+<li>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo使用文档</a></p>
+</li>
 <li>
 <p><a target="_blank" rel="noopener" href="https://linghucong.js.org/2016/04/15/2016-04-15-hexo-github-pages-blog/">手把手教你使用Hexo + Github Pages搭建个人独立博客 | 令狐葱@前端笔记</a></p>
 </li>
@@ -450,7 +452,7 @@ authenticated, but GitHub does not provide shell access</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">24k</span>
+    <span title="站点总字数">25k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
