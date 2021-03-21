@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"alfalfa.top","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#155","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="1-1+1-1+1-1+1-1+...">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Neuron">
+<meta property="og:url" content="https://alfalfa.top/index.html">
+<meta property="og:site_name" content="Neuron">
+<meta property="og:description" content="1-1+1-1+1-1+1-1+...">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Chain Xueliang">
+<meta property="article:tag" content="blog">
+<meta property="article:tag" content="Maths &amp; Physics">
+<meta property="article:tag" content="puzzles">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://alfalfa.top/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Neuron</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Neuron</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">星辰大海</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://alfalfa.top/2021/03/15/%E9%80%9A%E8%BF%87%E7%89%A9%E7%90%86%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B%E8%B5%B0%E9%80%9A%E7%94%B5%E7%A3%81%E5%9C%BA%E8%BF%B7%E5%AE%AB%E7%9A%84%E5%B0%9D%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Chain Xueliang">
+      <meta itemprop="description" content="1-1+1-1+1-1+1-1+...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Neuron">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/15/%E9%80%9A%E8%BF%87%E7%89%A9%E7%90%86%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B%E8%B5%B0%E9%80%9A%E7%94%B5%E7%A3%81%E5%9C%BA%E8%BF%B7%E5%AE%AB%E7%9A%84%E5%B0%9D%E8%AF%95/" class="post-title-link" itemprop="url">通过物理数学模型走通电磁场迷宫的尝试</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-15 23:47:10" itemprop="dateCreated datePublished" datetime="2021-03-15T23:47:10+08:00">2021-03-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-19 00:00:00" itemprop="dateModified" datetime="2021-03-19T00:00:00+08:00">2021-03-19</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>15k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>14 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>如题，下文尝试去梳理描绘某一条走出电动力学中电磁场迷宫的通路，其中很多内容整理自维基百科和费曼物理学讲义第二卷，不一一标注引用出处。电磁场本身是个不错的抽象模型，正如费曼所说：“它属于抽象这一点固然可惜，但却是必须的。”</p>
+<h2 id="🚀狄拉克-delta-分布与点电荷模型"><a class="header-anchor" href="#🚀狄拉克-delta-分布与点电荷模型">¶</a>🚀狄拉克$\delta$分布与点电荷模型</h2>
+<hr>
+<p>暂且不去深究<strong>Lebesgue integral</strong>（勒贝格积分）或是<strong>Heaviside step function</strong>（赫维赛德阶越函数）以及严格定义<strong>Dirac $\delta$ function</strong>，先粗略地（或者说从物理的实用方向出发）认为狄拉克$\delta$函数分布具有如下形式：</p>
+<p>$$<br>
+\begin{equation}<br>
+\delta(x)=<br>
+\begin{cases}<br>
+\infty&amp;  \text{x=0}\\<br>
+0&amp;  \text{x$\neq$0}<br>
+\end{cases}<br>
+\end{equation}<br>
+$$</p>
+<p>并满足如下条件：<a href="#1">(1)</a></p>
+<p>$$<br>
+\int_{-\infty}^\infty\delta(x)dx=1<br>
+$$</p>
+<p>图片来自维基百科:</p>
+<p><img src="https://i.loli.net/2020/02/22/KsqbQD23Jr1Pu4w.png" alt="Dirac.png"><br>
+假设<em>x</em>是时间<em>t</em>，那么对任意时刻$\tau$的脉冲狄拉克$\delta$进行复频域的拉普拉斯变换可以看到：</p>
+<p>$$<br>
+\mathfrak{L}{\delta(t-\tau)}=\int_{0^-}^\infty\delta(t-\tau)e^{-st}dt=\int_{-\infty}^\infty\delta(t-\tau)e^{-st}dt=e^{-s\tau}<br>
+$$</p>
+<p>需要指出，因为上面被积函数除了t=$\tau$$\ge$0这一个点外处处为0，所以开区间($\infty$，0）的定积分贡献为0，上式中两个积分上下限不同的定积分相等。显然，当$\tau=0$时，它的结果等于1，具体见<a target="_blank" rel="noopener" href="https://personal.psu.edu/sxt104/class/Math251/Notes-LT3.pdf">参考资料</a>。</p>
+<p>狄拉克$\delta$分布在概率论、结构力学甚至量子力学里都有重要应用，详见<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Dirac_delta_function#cite_note-18">wiki</a>。<br>
+如同学习经典力学开头时用到的质点模型，在电磁学里我们直观地接受和应用了点电荷模型，实际上它有深刻的数学基础支撑。假设空间中某一区域有<em>N</em>个离散的点电荷，那么其电荷密度可以用狄拉克$\delta$分布表达为（矢量和标量分别用粗体和斜体表示）：<br>
+$$<br>
+\rho(\boldsymbol{r})=\sum_{i=1}^Nq_i\delta(\boldsymbol{r}-\boldsymbol{r}_i)\qquad\qquad\qquad(1-1)<br>
+$$</p>
+<p>其中，<strong>r</strong>是检验位置（场点），$q_i$是位置为$\boldsymbol{r_i}$（源点）的第i个点电荷的电量。</p>
+<h2 id="散度定理和电荷密度模型"><a class="header-anchor" href="#散度定理和电荷密度模型">¶</a>散度定理和电荷密度模型</h2>
+<hr>
+<p><img src="https://i.loli.net/2020/02/22/bJ9GlwP5f2Qi3yE.png" alt="charge.png"><br>
+图片来自维基百科</p>
+<p>表达式（1-1）里开始涉及到很“物理”也很基本的矢量和标量：位置矢量<strong>r</strong>、电荷密度$\rho$以及电量q，对这个等式两边取它在V上的定积分（这里是空间区域的三重积分或体积分），那么两部分的定积分应该相等。左边得到的就是经典定义下的总电量Q=$\int_\mathbb{V}\rho(\boldsymbol{r})dV$(dV就是$d^3$<strong>r</strong>或dxdydz)，右边部分的演算如下：</p>
+<p>$$<br>
+\int_\mathbb{V}d^3\boldsymbol{r}\sum_{i=1}^Nq_i\delta(\boldsymbol{r}-{r_i})=\sum_{i=1}^Nq_i\int_\mathbb{V}d^3\boldsymbol{r}\delta(<br>
+\boldsymbol{r}-\boldsymbol{r_i})=\sum_{i=1}^Nq_i=Q<br>
+$$</p>
+<p>通过对狄拉克$\delta$分布的矢量微积分计算最后得到的也是Q！即狄拉克$\delta$分布保证了电荷密度对一个空间区域的积分等于这个区域内所包含的总电荷量，不管电荷实际是离散分布的还是连续的，是介电质中的“自由电荷”还是“束缚电荷”。</p>
+<p>由图可见，电荷密度按实际计算的需要不仅有体电荷密度$\rho$，还有面电荷密度$\sigma$、线电荷密度$\lambda$。实际上由于电极化及电位移，在微观层面两个正负“束缚电荷”$q_b^-$和$q_b^+$会产生电偶极子，它具有电偶极矩<strong>p</strong>=$q_b$<strong>d</strong>，其中$q_b$是“束缚电荷”电量，<strong>d</strong>是正负“束缚电荷”间的位移矢量。对于图上模型我们有<a href="#2">(2)</a>：</p>
+<p>$$<br>
+q_b=\frac{\boldsymbol{p}\cdot\boldsymbol{\hat{n}}}{\left|\boldsymbol{d}\right|}<br>
+$$</p>
+<p>在电介质表面，“束缚电荷”以表面电荷的形式存在。对上式取无穷小量再除以面积微元可以导出束缚面电荷密度:</p>
+<p>$$<br>
+\sigma_b=\frac{dq_b}{dS}=\frac{d\boldsymbol{p}\cdot\boldsymbol{\hat{n}}}{\left|\boldsymbol{d}\right|dS}=\frac{d\boldsymbol{p}}{dV}\cdot\boldsymbol{\hat{n}}=\boldsymbol{P}\cdot\boldsymbol{\hat{n}}\qquad(2-1)<br>
+$$</p>
+<p>其中<strong>P</strong>(C/$m^2$)即为电介质区域内电极化强度，对式(2-1)两边取闭合曲面<strong>S</strong>（包围有界体积）上的积分推导得：</p>
+<p>$$<br>
+q_b=\oint_\mathbb{S}\sigma_bdS=-\oint_\mathbb{S}\boldsymbol{P}\cdot\boldsymbol{\hat{n}}dS=-\iiint_\mathbb{V}\nabla\cdot\boldsymbol{P}dV=\iiint_\mathbb{V}\rho_bdV\qquad(2-2)<br>
+$$</p>
+<p>以上的推导将曲面积分转换为体积分并引入哈密顿算子$\nabla$，依据是<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/84804738">散度定理</a>，更严密一些的推导需要进行一系列的矢量微积分计算，此处直接引用结论。比较式(2-2)最后那个等式不难看出：</p>
+<p>$$<br>
+\rho_b=-\nabla\cdot\boldsymbol{P}\qquad\qquad\qquad(2-3)<br>
+$$</p>
+<p>电极化强度的负散度就是束缚电荷的体密度，结论精简得令人赞叹！</p>
+<p><img src="https://i.loli.net/2020/02/22/u7MFeXR1Tho9Htl.jpg" alt="flux.jpg"><br>
+图片来自维基百科</p>
+<h2 id="高斯定律与场的通量模型"><a class="header-anchor" href="#高斯定律与场的通量模型">¶</a>高斯定律与场的通量模型</h2>
+<hr>
+<p><img src="https://i.loli.net/2020/02/22/CqtsM53raeJw9DO.png" alt="flux.png"><br>
+图片来自维基百科</p>
+<p>上一段落重点围绕“束缚电荷”（构成微观电偶极子）、束缚面电荷密度及电极化的通路，既然式（2-3）内“束缚电荷”的体密度是电极化强度的负散度，而所有电荷本质上是相同的，那么另一部分“自由电荷”（“宏观的空间电荷”）的体密度$\rho_f$会是哪一个物理量的（负）散度呢？先暂停猜测往前走，要相信它在数学上必定存在，而且可以肯定它也是一个矢量，其单位和电极化强度<strong>P</strong>的单位相同，都是C/$m^2$，就用<strong>D</strong>来表示，即：</p>
+<p>$$<br>
+\rho_f=\nabla\cdot\boldsymbol{D}\qquad\qquad\qquad(3-1)<br>
+$$</p>
+<p>式（3-1）即为“宏观麦克斯韦方程组”中人见人爱的高斯电场定律。看来<strong>D</strong>很可能是描述电场的一个基本物理量，让我们继续往下走，把式(2-3)、(3-1)两个方程加起来：</p>
+<p>$$<br>
+\rho=\rho_b+\rho_f=\nabla\cdot(-\boldsymbol{P})+\nabla\cdot\boldsymbol{D}=\nabla\cdot(\boldsymbol{D-P})\qquad\qquad\qquad(3-2)<br>
+$$</p>
+<p>综合式（2-3）、（3-1）和（3-2），介质中可以线性叠加的电荷密度就像一个源头产生三个空间矢量场<strong>P</strong>、<strong>D</strong>和<strong>D</strong>-<strong>P</strong>，我们把<strong>D</strong>-<strong>P</strong>表示成$\epsilon_0\boldsymbol{E}$（$\epsilon_0$称为真空电容率），从而得到电介质材料的<a href="baike.baidu.com/item/%E6%9C%AC%E6%9E%84%E6%96%B9%E7%A8%8B">本构方程</a>：</p>
+<p>$$<br>
+\boldsymbol{D}=\epsilon_0\boldsymbol{E}+\boldsymbol{P}<br>
+$$</p>
+<p>有了这个模型，高斯电场定律可以改写成“微观麦克斯韦方程组”里的以下方程：</p>
+<p>$$<br>
+\nabla\cdot\boldsymbol{E}=\frac{\rho}{\epsilon_0}\qquad\qquad\qquad(3-3)<br>
+$$</p>
+<p>根据散度定理，高斯定律的微分形式等价于其积分形式，参照式（2-2）将式（3-1）写回它的积分形式：</p>
+<p>$$<br>
+\oint_\mathbb{S}\boldsymbol{D}\cdot\boldsymbol{\hat{n}}dS=\iiint_\mathbb{V}\rho_fdV\iff\oint_\mathbb{S}\boldsymbol{D}\cdot<br>
+d\boldsymbol{S}=Q_f\qquad(3-4)<br>
+$$</p>
+<p>停下脚步来看式（3-4），它也可以写成囊括全部电荷密度分布的<strong>E</strong>的相容版本，不过现在更为精简。$\boldsymbol{\hat{n}}$是积分面积微元的单位法向量，$\boldsymbol{D}\cdot\boldsymbol{\hat{n}}$这个向量点积就是向量<strong>D</strong>在面积微元法向量方向的投影的大小，可以理解为通量密度。然后对它在整个闭合曲面<strong>S</strong>上做定积分得到矢量场<strong>D</strong>“流过”整个闭合曲面的通量，用$\Phi_D$表示，称为“电通量”，我们有理由相信它等于闭曲面包围的总的自由电荷电量$Q_f$。推而广之，通量密度的积分区域不必是包围一个体积的闭曲面，也可以是以闭曲线为界的光滑曲面。如果把通量看作是更基本的量，那么矢量场<strong>D</strong>就可以被称为电通量密度<strong>D</strong>。</p>
+<p>在狭义相对论中，对一个电场运用洛伦兹变换将把它转换为一个磁场(<a target="_blank" rel="noopener" href="https://hepweb.ucsd.edu/ph110b/110b_notes/node69.html">参考链接</a>)，两者具有对偶性，因此磁场应当也具有通量密度这一属性，我们称之为磁通量密度，用<strong>B</strong>表示。对<strong>B</strong>求闭曲面上的积分就是求通过闭曲面的磁通量$\Phi$$_B$，依据式（2-2）它应当等于<strong>B</strong>的散度的体积分即$\iiint_\mathbb{V}\nabla\cdot\boldsymbol{B}$dV，由于目前还没发现磁单极子，磁通密度“线”都是从N极到S极闭合，因此：<br>
+$$<br>
+\oint_\mathbb{S}\boldsymbol{B}\cdot d\boldsymbol{S}=0\iff\nabla\cdot\boldsymbol{B}=0\qquad\qquad\qquad(3-5)<br>
+$$</p>
+<p>式（3-5）就是麦克斯韦方程组中的高斯磁定律，目前它“总是对的”。</p>
+<h2 id="静电场和泊松方程"><a class="header-anchor" href="#静电场和泊松方程">¶</a>静电场和泊松方程</h2>
+<hr>
+<p><img src="https://i.loli.net/2020/02/22/VZe6trUMNiGvbEk.png" alt="chargeball.png"><br>
+<a target="_blank" rel="noopener" href="http://xn--favpgn-os0kt79hnqu0x9a.com">图片来自favpgn.com</a></p>
+<p>考虑相对简单的真空中的静电场，那么描述它的麦克斯韦方程或称为静电场约束条件如下：</p>
+<p>$$<br>
+\begin{cases}<br>
+\nabla\cdot\boldsymbol{E}=\frac{\rho}{\epsilon_0}<br>
+\\<br>
+\nabla\times\boldsymbol{E}=0<br>
+\end{cases}<br>
+$$</p>
+<p>只有一个自由项$\rho$和一个矢量场<strong>E</strong>，这两个条件说明静电场是有源无旋场。<strong>E</strong>可以如同“宏观”的<strong>D</strong>被理解为电通量密度，一般被称为电场强度，那么最简单的真空中有且仅有一个点电荷的电场强度有怎样的解析式呢？依据式（1-1）点电荷的电荷密度表达式为：</p>
+<p>$$<br>
+\rho(\boldsymbol{r})=q\delta(\boldsymbol{r}-\boldsymbol{r’})\qquad\qquad\qquad(4-1)<br>
+$$</p>
+<p>其中$\boldsymbol{r}$是要计算的<strong>E</strong>所在的位置矢量(场点)，$\boldsymbol{r}$'是点电荷所在位置矢量（源点），先贴出关于位置矢量的矢量微分数学关系式：</p>
+<p>$$<br>
+\nabla\cdot\frac{\boldsymbol{r-r’}}{\left|\boldsymbol{r-r’}\right|^3}=4\pi\delta(\boldsymbol{r-r’})\qquad\qquad\qquad(4-2)<br>
+$$</p>
+<p>式（4-2）看上去很陌生，但我们要应用它，它伴随着运用一系列技术如格林方法解矢量偏微分方程而来<a href="3">(3)</a>。这些偏微分方程往往都很难解，比如泊松方程。<br>
+接下来将式（4-1）代入式（3-3）再转换成等价的积分形式，意味着将点电荷模型运用到麦克斯韦方程中：<br>
+$$<br>
+\nabla\cdot\boldsymbol{E}=\frac{q}{\epsilon_0}\delta(\boldsymbol{r-r’})\qquad\qquad\qquad(4-3)<br>
+$$</p>
+<p>将式（4-2）代入式（4-3）：</p>
+<p>$$<br>
+\nabla\cdot\boldsymbol{E}=\frac{q}{4\pi\epsilon_0}\nabla\cdot\frac{\boldsymbol{r-r’}}{\left|\boldsymbol{r-r’}\right|^3}\qquad\qquad\qquad(4-4)<br>
+$$</p>
+<p>比较（4-4）等式两边，可得：</p>
+<p>$$<br>
+\boldsymbol{E(\boldsymbol{r})}=\frac{q}{4\pi\epsilon_0}\frac{\boldsymbol{r-r’}}{\left|\boldsymbol{r-r’}\right|^3}<br>
+$$</p>
+<p>把$\boldsymbol{r}$-$\boldsymbol{r’}$用一个矢量$\boldsymbol{r}$代替，并用模和单位向量表示$\boldsymbol{r}$=r$\boldsymbol{\hat{r}}$，代入上式得到“平方反比”形式的电场强度解析式，它等同于库仑定律：</p>
+<p>$$<br>
+\boldsymbol{E(\boldsymbol{r})}=\frac{q}{4\pi\epsilon_0r^2}\boldsymbol{\hat{r}}\qquad\qquad\qquad(4-5)<br>
+$$</p>
+<p>运用矢量微分规则-$\nabla$($\frac{1}{r}$)=$\frac{\hat{\boldsymbol{r}}}{r^2}$整理式（4-5）得：</p>
+<p>$$<br>
+\boldsymbol{E}=-\nabla\frac{q}{4\pi\epsilon_0 r}\qquad记作：\boldsymbol{E}=-\nabla\phi\qquad(4-6)<br>
+$$</p>
+<p>原来静电场<strong>E</strong>是某个标量的负梯度，而且它还是个保守场（梯度场）。事实上，任一旋度为0的矢量场等于某一标量函数的梯度。注意，这个方程普适的版本是在右边补上一个-$\frac{\partial\boldsymbol{A}}{\partial t}$的时变场，即：</p>
+<p>$$<br>
+\boldsymbol{E}=-\nabla\phi-\frac{\partial\boldsymbol{A}}{\partial t}\qquad\qquad\qquad(4-7)<br>
+$$</p>
+<p>不论理论或实用，真空或介质，离散电荷或连续电荷分布，单个静电荷或可叠加的流动的电荷，上述的“某个标量”都可能更为基本，我们用$\phi$表示它，称之为场的标势：</p>
+<p>$$<br>
+\phi=\frac{q}{4\pi\epsilon_0 r}<br>
+$$</p>
+<p>矢量微积分告诉我们一个标量的梯度的旋度为0，因此对式（4-6）两边取旋度得到<strong>E</strong>的旋度为0，符合约束条件。再看看对式（4-6）两边取散度会发生什么：</p>
+<p>$$<br>
+\nabla\cdot\boldsymbol{E}=-\nabla\cdot(\nabla\phi)<br>
+$$</p>
+<p>左边由约束条件可知它等于$\frac{\rho}{\epsilon_0}$，右边是负的$\phi$的梯度的散度，梯度的散度习惯上表示成一个拉普拉斯算子$\nabla^2$，$\epsilon_0$在均匀各向同性线性介质中可以用$\epsilon$代替，故有：</p>
+<p>$$<br>
+\nabla^2\phi =-\frac{\rho}{\epsilon}<br>
+$$</p>
+<p>上式是静电荷所激发的标势（电势）满足的基本微分方程，被称为泊松方程，“从数学的角度看，静电学这个课题只不过是学习解这一方程的解。”在更接近现实的电动力学里，它演进为达朗贝尔方程。</p>
+<h2 id="斯托克斯公式与法拉第定律"><a class="header-anchor" href="#斯托克斯公式与法拉第定律">¶</a>斯托克斯公式与法拉第定律</h2>
+<hr>
+<p><img src="https://i.loli.net/2020/02/21/SVsJtBx5ckCT7Ll.gif" alt="FaradaysLawWithPlates.gif"></p>
+<p>图片来自维基百科</p>
+<p>到目前为止除了式（4-7）我们还没把时间t纳入考量，而实际的电场和磁场显然不是静止的，甚至也不是恒定的从而可以分离开来求解，它们互相激发，相互制约，<strong>E</strong>不再是保守场，原来描述它们的工具和方程可能不再适用。有趣的是，有些限制在静场下推演的公式用来处理随时间变化的场时依然成立，比如高斯定律。时间t再次让人匪夷所思。物理学讲义给出了一张表格<a href="#4">(4)</a>并予以说明，帮助我们把那些普遍正确的与那些只有对静态才正确而在动态则是错误的重要公式区别开来。接下来就沿着其中两个普遍正确的含有时变项dt的麦克斯韦方程的路径探寻，请牢记，那些只在静态下才正确的公式已不再适用。</p>
+<p>前面得到电场<strong>E</strong>的一般表达式（4-7），取它的旋度：</p>
+<p>$$<br>
+\nabla\times\boldsymbol{E}=\nabla\times(-\nabla\phi-\frac{\partial\boldsymbol{A}}{\partial<br>
+t})=-\nabla\times\nabla\phi-\nabla\times\frac{\partial\boldsymbol{A}}{\partial t}<br>
+$$</p>
+<p>都是线性算子的线性算法，其中$\phi$的梯度的旋度等于0，得：</p>
+<p>$$<br>
+\nabla\times\boldsymbol{E}=-\frac{\partial{(\nabla\times\boldsymbol{A})}}{\partial t}\qquad\qquad\qquad(5-1)<br>
+$$</p>
+<p>式（5-1）指出电场<strong>E</strong>的旋度是某个矢量场（$\nabla\times\boldsymbol{A}$）对时间的负的偏导数；另一方面，任一矢量场旋度的散度为0，对式（5-1）两边取散度：</p>
+<p>$$<br>
+\nabla\cdot(\nabla\times\boldsymbol{E})=\nabla\cdot(-\frac{\partial{(\nabla\times\boldsymbol{A})}}{\partial<br>
+t})\iff 0=\nabla\cdot(-\frac{\partial{(\nabla\times\boldsymbol{A})}}{\partial t})<br>
+$$</p>
+<p>等一下！现在好像在迷宫中糟糕地绕圈。$\nabla\times\boldsymbol{E}$的散度恒为0，最后括号里那一堆东西也是矢量场旋度的散度，等于0，对时间求偏导数不影响这个性质，要小心。同时别忘了高斯磁定律还为我们指出有一个矢量场<strong>B</strong>，它的散度恒为0，因此逻辑上<strong>B</strong>可以是任意有旋矢量场的旋度，可以是$\nabla\times\boldsymbol{E}$、$\nabla\times\boldsymbol{E}$+C、$\nabla\times\boldsymbol{E}+\nabla\phi$和上面的$\frac{\partial{(\nabla\times<br>
+\boldsymbol{A})}}{\partial t}$等等任何其中之一或叠加，这就有点绕晕了。为了静磁场的分析方便和让尝试可以继续下去，作出如下选择：<br>
+$$<br>
+\boldsymbol{B}=\nabla\times\boldsymbol{A}\qquad\qquad(5-2)\qquad且\qquad\nabla\cdot\boldsymbol{A}=0<br>
+$$</p>
+<p><strong>A</strong>称为<strong>B</strong>的矢势，表示得也颇有意思。将式（5-2）代回（5-1），来到本段落的目的地——家喻户晓的法拉第电磁感应定律：<br>
+$$<br>
+\nabla\times\boldsymbol{E}=-\frac{\partial{\boldsymbol{B}}}{\partial t}\qquad\qquad\qquad(5-3)<br>
+$$</p>
+<p>电磁感应现象的发现主要是建立在法拉第本人大量天才和扎实的工作基础上，经过韦伯、纽曼、楞次等人的贡献，最后由麦克斯韦与法拉第相辅相成写进他伟大的方程组中。当人们发现了电磁感应规律后，便突然把理论和大量实际发展联系起来。</p>
+<p><img src="https://i.loli.net/2020/02/22/cPG8ATE6O4XwsF2.jpg" alt="favpngcom.jpg"></p>
+<p><a target="_blank" rel="noopener" href="http://xn--favpgn-os0kt79hnqu0x9a.com">图片来自favpgn.com</a></p>
+<p>前面用到$\mathbb{R^3}$空间矢量场的通量模型，现在再把一个称为“环量”的工具拿出来，类似于$\iint_S\boldsymbol{F}\cdot\boldsymbol{\hat{n}}dS$是矢量场在曲面法线方向上的分量$\boldsymbol{F}\cdot\boldsymbol{\hat{n}}$在空间曲面S(不必是闭曲面)上的积分。如图所示，“环量”是矢量场在曲面（$\Sigma$）边界（$\partial\Sigma$）的切向分量$\boldsymbol{F}\cdot\boldsymbol{\hat{r}}$在曲面边界上的积分，是一种曲线积分。斯托克斯公式<a href="#5">(5)</a>指出：$\mathbb{R^3}$空间上矢量场在曲面边界的线积分等于矢量场的旋度的曲面积分，写成：</p>
+<p>$$<br>
+\int_\mathbb{S}\nabla\times\boldsymbol{F}\cdot d\boldsymbol{S}=\oint_\mathbb{L}\boldsymbol{F}\cdot d\boldsymbol{\ell}<br>
+$$</p>
+<p>运用斯托克斯公式，我们有：</p>
+<p>$$<br>
+\iint_\mathbb{S}\nabla\times\boldsymbol{E}\cdot<br>
+d\boldsymbol{S}=\oint_\mathbb{L}\boldsymbol{E}\cdot<br>
+d\boldsymbol{\ell}=-\iint_\mathbb{S}\frac{\partial{\boldsymbol{B}}}{\partial<br>
+t}\cdot d\boldsymbol{S}\qquad(5-4)<br>
+$$<br>
+和：<br>
+$$<br>
+\iint_\mathbb{S}\boldsymbol{B}\cdot<br>
+d\boldsymbol{S}=\oint_\mathbb{L}\boldsymbol{A}\cdot d\boldsymbol{\ell}<br>
+$$</p>
+<p>把式（5-4）里的时间微商移至积分符号之外，便得出法拉第定律的积分形式：</p>
+<p>$$<br>
+\oint_\mathbb{L}\boldsymbol{E}\cdot<br>
+d\boldsymbol{\ell}=-\frac{\partial}{\partial<br>
+t}\iint_\mathbb{S}\boldsymbol{B}\cdot<br>
+d\boldsymbol{S}=-\frac{d\Phi_B}{dt}\qquad\qquad(5-5)<br>
+$$</p>
+<p>式（5-5）表明：电场<strong>E</strong>沿空间曲面$\mathbb{S}$边界上的线积分（闭合路径积分）等于磁场<strong>B</strong>在这个曲面上的曲面积分对时间的负的变化率（微商），即等于通过这个曲面的磁通量的变化率。应用于沿一个固定的导电电路而行的曲线$\mathbb{L}$，穿过该电路的磁通量变化在线路上激发出电场<strong>E</strong>，这个磁通量变化率大小等于电场<strong>E</strong>沿回路曲线上的路径积分，我们知道它就是法拉第发现的“通量法则”中的感生电动势$\mathscr{E}$。此时，$\oint_\mathbb{L}\boldsymbol{E}\cdot d\ell\neq 0$，<strong>E</strong>不再是保守场。</p>
+<p>奇妙的是，法拉第还发现了一个导体切割磁力线会产生动生电动势的现象，一般用作用于电荷上的洛伦兹力$\boldsymbol{F}=q(\boldsymbol{E}+\boldsymbol{v}\times\boldsymbol{B})$里的$\boldsymbol{v}\times\boldsymbol{B}$项来分析，不同的现象、不同的解释分析和定律通往同一个简单而又准确的原理。</p>
+<h2 id="电荷守恒与麦克斯韦-安培定律"><a class="header-anchor" href="#电荷守恒与麦克斯韦-安培定律">¶</a>电荷守恒与麦克斯韦-安培定律</h2>
+<hr>
+<p><img src="https://i.loli.net/2020/02/22/oOl2z9ivJIEaSD6.png" alt="Continuity.png"></p>
+<p>图片来自维基百科</p>
+<p>俗语说“电生磁，磁生电”，我们继续在时变场的迷宫里走，如果顺利的话，不到处碰死胡同，走通了“电生磁”，大概率出口就在不远处。讲义里提到，磁场实际上是电的一种相对论效应，对此我们不打算走得太远，尽量靠近最常用的基本物理量电流$\mathrm{I}$（关键是电流密度<strong>J</strong>），以更为基本的电荷电流守恒为起点探寻。首先我们有孤立系统的连续性方程，用它来表达局域电荷守恒则为：</p>
+<p>$$<br>
+\frac{\partial{\rho}}{\partial t}+\nabla\cdot\boldsymbol{J}=0\qquad\qquad\qquad(6-1)<br>
+$$</p>
+<p>按照连续性方程，<strong>J</strong>应当是电荷电量q的流量密度（每单位面积每单位时间）的矢量函数，对式（6-1）进行移项再两边取自由空间体积分：</p>
+<p>$$<br>
+-\iiint_\mathbb{V}\frac{\partial{\rho}}{\partial t}dV=\iiint_\mathbb{V}\nabla\cdot\boldsymbol{J}dV<br>
+$$</p>
+<p>上式左边项显然等于-dq/dt，而右边项再次运用散度定理即为$\int JdScos\theta=\mathrm{I}$。电流是电荷的流量，假如电荷从某一微小体积元移出去(电流密度的散度是正值)，则那个微小体积元内的总电荷量会减少，电荷密度的变率是负值，由于电荷守恒，两个值相加为0，合情合理。接下来我们细致审查这个被称为电流密度的矢量，$\boldsymbol{J}$将高斯电场定律代入式（6-1）并作适当整理：</p>
+<p>$$<br>
+\nabla\cdot(\epsilon_0\frac{\partial{\boldsymbol{E}}}{\partial t}+\boldsymbol{J})=0\qquad\qquad\qquad(6-2)<br>
+$$</p>
+<p>对于式（6-1），若$\nabla\cdot\boldsymbol{J}=0$，电荷密度就不随时间变化，反之亦然。这时无源分布的$\boldsymbol{J}$被称为恒定电流，常见的直流闭合电路就是这种情形。对于式（6-2）我们除了将高斯定律代入连续性方程其他基本什么都没做，但这个简单的式子却暗藏着玄机。有两种解释，其一，括号里的那个家伙由两个矢量场相加而成，这两个矢量场应具有相同的物理量纲，因此电场<strong>E</strong>的时变乘以常数$\epsilon_0$相当于一种电流（密度）$\boldsymbol{J}$，事实上，我们下面确实要把$\boldsymbol{J}$分成好几类；其二，那家伙很可能是某个矢量场的旋度，而矢量场旋度的散度恒等于0，这样与（6-2）恒成立相一致。那么<strong>B</strong>本身呢？<strong>B</strong>的散度也恒等于0。真相只有一个，它要符合安培做的那些伟大实验里的物理事实，还要和麦克斯韦的方程组以及他预言到的无处不在的电磁波相容。</p>
+<p>我们有亥姆霍兹方程形式的电磁波波动方程（波源为零）：</p>
+<p>$$<br>
+\nabla^2\boldsymbol{E}-\frac{1}{c_0^2}\frac{\partial^2}{\partial<br>
+t^2}\boldsymbol{E}=0\qquad\qquad\qquad(6-3)<br>
+$$</p>
+<p>$$<br>
+\nabla^2\boldsymbol{B}-\frac{1}{c_0^2}\frac{\partial^2}{\partial<br>
+t^2}\boldsymbol{B}=0\qquad\qquad\qquad(6-4)<br>
+$$</p>
+<p>$c_0$为真空中光速，即电磁波传播于自由空间的速度，自由空间意味着假定源电流与源电荷为零，即$\nabla\cdot\boldsymbol{E}=0$，=0$\boldsymbol{J}$。数学上有:$\nabla\times(\nabla\times\boldsymbol{E})=\nabla(\nabla\cdot\boldsymbol{E})-\nabla^2\boldsymbol{E}$，将法拉第定律代入（6-3）再运用这个恒等式化简:</p>
+<p>​<br>
+$$<br>
+\frac{\partial(\nabla\times\boldsymbol{B})}{\partial<br>
+t}=\frac{1}{c_0^2}\frac{\partial^2}{\partial<br>
+t^2}\boldsymbol{E}\qquad\qquad\qquad(6-5)<br>
+$$</p>
+<p>式（6-5）揭示了<strong>E</strong>的时变场$\frac{\partial\boldsymbol{E}}{\partial t}$和<strong>B</strong>场的旋度是“相通”的。老实说，本人不太会解二阶偏微分方程，哪怕是齐次的，故试着拼凑一下，让式（6-2）括号里的式子兼容到式（6-5），留意到式（6-2）对于时变的也$\boldsymbol{J}$是成立的，而式（6-5）的成立有限制条件$\boldsymbol{J}$=0。对式（6-2）乘以$\frac{1}{\epsilon_0 c_0^2}$：</p>
+<p>$$<br>
+\nabla\cdot(\frac{1}{c_0^2}\frac{\partial{\boldsymbol{E}}}{\partial<br>
+t}+\frac{1}{\epsilon_0 c_0^2}\boldsymbol{J})=0\qquad\qquad\qquad<br>
+$$</p>
+<p>这样就凑出式（6-5）右边的那一项，为保持一致再在式（6-5）右边加上一项$\frac{1}{\epsilon_0 c_0^2}\frac{\partial{\boldsymbol{J}}}{\partial t}$，由于约束条件它在式（6-5）那里依然为零，整理如下:</p>
+<p>$$<br>
+\frac{\partial(\nabla\times\boldsymbol{B})}{\partial t}=\frac{\partial}{\partial<br>
+t}(\frac{1}{c_0^2}\frac{\partial{\boldsymbol{E}}}{\partial<br>
+t}+\frac{1}{\epsilon_0 c_0^2}\boldsymbol{J})\qquad\qquad(6-6)<br>
+$$</p>
+<p>其中$\frac{1}{\epsilon_0c_0^2}$也是常数，被称为真空磁导率，用$\mu_0$表示，约为4$\pi\times10^{-7}$H/m，被认为完全依赖于精细结构常数$\alpha$<a href="#6">(6)</a>（2019年5月新修订生效的SI系统开始认为真空磁导率不再是个常数，而需要由实验来确定。）经过这一番有待商榷的拼凑，式（6-6）接近了麦克斯韦-安培定律：</p>
+<p>$$<br>
+\nabla\times\boldsymbol{B}=\mu_0\boldsymbol{J}+\frac{1}{c_0^2}\frac{\partial{\boldsymbol{E}}}{\partial<br>
+t}\qquad\qquad\qquad(6-7)<br>
+$$</p>
+<p>式（6-7）右边有颇为不同的两项，麦克斯韦-安培定律阐明了磁场的两种生成方法：一种是靠电流（最初安培定律描述的方法）产生，另一种是靠随时间变化的电场（麦克斯韦后来修正描述的方法）产生。左边既然是矢量场的旋度，我们就对它取空间曲面上的面积分然后运用斯托克斯公式关联到这个曲面边界的闭合路径积分：</p>
+<p>$$<br>
+\iint_\mathbb{S}(\nabla\times\boldsymbol{B})\cdot<br>
+d\boldsymbol{S}=\oint_\mathbb{L}\boldsymbol{B}\cdot<br>
+d\ell=\iint_\mathbb{S}(\mu_0\boldsymbol{J}+\frac{1}{c_0^2}\frac{\partial{\boldsymbol{E}}}{\partial<br>
+t})\cdot d\boldsymbol{S}=\mu_0\boldsymbol{I}+\mu_0\epsilon_0\frac{d\Phi_E}{dt}<br>
+$$</p>
+<p>瞧，最后通过高斯数学（散度定理和曲面积分）我们又回到了电流$\mathrm{I}$和电通量$\Phi_E$。</p>
+<p>由于材料本身的特性，电流（密度）可以分为传导电流$\boldsymbol{J_f}$、束缚电流$\boldsymbol{J_b}$、极化电流$\boldsymbol{J_P}$、磁化电流$\boldsymbol{J_M}$、位移电流$\boldsymbol{J_D}$，总的电流密度$\boldsymbol{J}=\boldsymbol{J_f}+\boldsymbol{J_b}=\boldsymbol{J_f}+\boldsymbol{J_D}+\boldsymbol{J_M}=\boldsymbol{J_f}+\boldsymbol{J_M}+\boldsymbol{J_P}+\epsilon_0\frac{\partial{\boldsymbol{E}}}{\partial t}$，不一一说明，由于这些关系，<strong>H</strong>场和用<strong>B</strong>场表达的麦克斯韦-安培定律完全等价。</p>
+<h2 id="电磁波与光"><a class="header-anchor" href="#电磁波与光">¶</a>电磁波与光</h2>
+<hr>
+<p><img src="https://i.loli.net/2020/02/22/hmAnqzrRuvx8Fp4.png" alt="electromagnetic.png"></p>
+<p>图片来自维基百科</p>
+<p>把电磁波与光规划为出口兴许比较合大众化口味，可惜其理论部分其实一点也不大众化，索性挑个重点。审视电场和磁场的两个波动方程（6-3）和（6-4），电场<strong>E</strong>和磁场<strong>B</strong>的每一个分量都满足标量波动方程：</p>
+<p>$$<br>
+\frac{1}{c^2}\frac{\partial^2 f}{\partial{t^2}}-\nabla^2 f=0<br>
+$$</p>
+<p>其中，f是任意<a href="https:%5Cbaike.baidu.com/item/%E8%89%AF%E6%80%81/22781480">良态函数</a>，它的一般解的形式是：$f(\boldsymbol{r},t)=g(\boldsymbol{k}\cdot\boldsymbol{r}-\omega t)$，其中<strong>r</strong>是位置矢量，t是时间，<strong>k</strong>是波矢，$\omega$是角频率。函数g描述一个波动，随着时间的演化，朝着<strong>k</strong>的方向传播于空间。经过一系列分析，可以猜到方程（6-3）和（6-4）的单色正弦平面波的解为：</p>
+<p>$$<br>
+\boldsymbol{\tilde{E}}(\boldsymbol{r},t)=\boldsymbol{\tilde{E_0}}e^{i(\boldsymbol{k\cdot r}-\omega t)}<br>
+$$</p>
+<p>$$<br>
+\boldsymbol{\tilde{B}}(\boldsymbol{r},t)=\boldsymbol{\tilde{B_0}}e^{i(\boldsymbol{k\cdot r}-\omega t)}<br>
+$$</p>
+<p>其中，$\boldsymbol{\tilde{E_0}}$和$\boldsymbol{\tilde{B_0}}$分别为复值电场和复值磁场的复常数振幅矢量。由于在自由空间中$\nabla\cdot\boldsymbol{E}=0$，$\nabla\cdot\boldsymbol{B}=0$，由复分析得：</p>
+<p>$$<br>
+\boldsymbol{k}\cdot\boldsymbol{\tilde{E_0}}=0\qquad和\qquad\boldsymbol{k}\cdot\boldsymbol{\tilde{B_0}}=0<br>
+$$</p>
+<p>上式揭示了电场和磁场垂直于波矢，波动传播的方向。因此，电磁波是横波。<br>
+运用法拉第电磁感应定律对波动方程的解进行复分析得出更多隐含信息：$\nabla\times\boldsymbol{\tilde{E}}=i\omega\boldsymbol{\tilde{B}}$，将角频率与波数的色散关系式$\omega$=ck代入：</p>
+<p>$$<br>
+\tilde{B}=\frac{\boldsymbol{k}}{\omega}\times\boldsymbol{\tilde{E}}=\frac{1}{c}\boldsymbol{\hat k}\times\boldsymbol{\tilde{E}}<br>
+$$</p>
+<p>可见，电场和磁场相互垂直于对方；磁场的大小等于电场的大小除以光速（相对论效应？）。以上都是简单模型揭示出的内在图景，至于波的全部，正如生活总有困难的部分，费曼如是说：“我看到了某种模糊的阴影，摇动着的线——莫名其妙但又总得在这里或那里标明之为<strong>E</strong>或<strong>B</strong>，而也许有些线还带着箭头——当我对其考察得太细致时，这里或那里的一个箭头会消失不见。当我谈及飕地飞过空间中的那些场时，在用来描述对象的符号与对象本身之间存在一种可怕的混乱。我确实不能作出哪怕是仅仅接近于真实波的一种图像。”</p>
+<p>让我们能看见的和看见所看不见的各种光，在詹姆斯.麦克斯韦的1864年论文《电磁场的动力学理论》中，他这样说：“这些殊途一致的结果，似乎意味着光波与电磁波都是同样物质的属性，并且，光波是按照着电磁定律传播于电磁场的电磁扰动。”</p>
+<h2 id="结语"><a class="header-anchor" href="#结语">¶</a>结语</h2>
+<hr>
+<p>本篇博文旨趣在于厘清和联结个人工作和学习中积累起来的问题表象下面深藏的几条基础理论脉络，并尝试另辟蹊径。虽然学问浩瀚无涯，而个人能力有限，过程曲折艰辛，但是真正的快乐和惊奇就像打开了魔术盒从中蹦跳出来，我把它们分享出来希望有感兴趣的读者读到后，一方面可以有所启发，另一方面小心里面的陷阱和纰漏，不吝赐教指正。📝</p>
+<h2 id="参考引用"><a class="header-anchor" href="#参考引用">¶</a>参考引用</h2>
+<hr>
+<p><span id="1"><strong>(1)</strong>.Gel’fand &amp; Shilov 1968,Volume I,$\S$1.1,p.1</span><br>
+<span id="2"><strong>(2)</strong>.D.J.Griffiths(2007).Introduction to Electrodynamics(3rd ed.)</span><br>
+<span id="3"><strong>(3)</strong>.郭硕鸿,电动力学,第2章,$\S$5,p.77~79</span><br>
+<span id="4"><strong>(4)</strong>.理查德.费曼,费曼物理学讲义,第15章,$\S$15-6,p.180~182</span><br>
+<span id="5"><strong>(5)</strong>.Michael Corral(2008),Vector Calculus,Volume IV,$\S$4.5,p.165</span><br>
+<span id="6"><strong>(6)</strong>.Parker,Richard.H;Yu.Chenghui;Zhong.Weicheng;Estey,Brian;M$\ddot{u}$ller,Holger(2018-04-13).Measurement of fine-structure constant as a test of the Standard Model.<em>Science</em>.360(6385):191~195,<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1812.04130">arXiv</a>:1812.04130</span></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Chain Xueliang"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Chain Xueliang</p>
+  <div class="site-description" itemprop="description">1-1+1-1+1-1+1-1+...</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qxliang2014" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qxliang2014" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:hafu2008@163.com" title="E-Mail → mailto:hafu2008@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chain Xueliang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">24k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">22 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"alfalfa.top","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#155","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="¶引言 所谓用进废退大致也适用于任何一门计算机语言，比如从一个个小目标、小项目做起， 再比如在学习数学的时候用python作为计算分析和作图的有力工具，用好这个工具一定能帮助我们无论在纯数学还是在工程或者编程本身这些方面取得进步。 ¶选择使用SymPy 用编程处理问题，特别是科学计算和数据处理等需要一定的数学基础，而且随着项目推进愈来愈需要更深厚扎实的数学功底，python语言有一整个开源强大的科">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python符号运算库SymPy学习笔记">
+<meta property="og:url" content="https://alfalfa.top/2018/05/11/sympy%E5%BA%93%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Neuron">
+<meta property="og:description" content="¶引言 所谓用进废退大致也适用于任何一门计算机语言，比如从一个个小目标、小项目做起， 再比如在学习数学的时候用python作为计算分析和作图的有力工具，用好这个工具一定能帮助我们无论在纯数学还是在工程或者编程本身这些方面取得进步。 ¶选择使用SymPy 用编程处理问题，特别是科学计算和数据处理等需要一定的数学基础，而且随着项目推进愈来愈需要更深厚扎实的数学功底，python语言有一整个开源强大的科">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-05-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-03-17T17:38:57.094Z">
+<meta property="article:author" content="Chain Xueliang">
+<meta property="article:tag" content="markdown">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://alfalfa.top/2018/05/11/sympy%E5%BA%93%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>python符号运算库SymPy学习笔记 | Neuron</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Neuron</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">星辰大海</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://alfalfa.top/2018/05/11/sympy%E5%BA%93%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Chain Xueliang">
+      <meta itemprop="description" content="1-1+1-1+1-1+1-1+...">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Neuron">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python符号运算库SymPy学习笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-11 00:00:00" itemprop="dateCreated datePublished" datetime="2018-05-11T00:00:00+08:00">2018-05-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-18 01:38:57" itemprop="dateModified" datetime="2021-03-18T01:38:57+08:00">2021-03-18</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>6.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="引言"><a class="header-anchor" href="#引言">¶</a>引言</h2>
+<p>所谓用进废退大致也适用于任何一门计算机语言，比如从一个个小目标、小项目做起， 再比如在学习数学的时候用python作为计算分析和作图的有力工具，用好这个工具一定能帮助我们无论在纯数学还是在工程或者编程本身这些方面取得进步。</p>
+<h2 id="选择使用SymPy"><a class="header-anchor" href="#选择使用SymPy">¶</a>选择使用SymPy</h2>
+<p>用编程处理问题，特别是科学计算和数据处理等需要一定的数学基础，而且随着项目推进愈来愈需要更深厚扎实的数学功底，python语言有一整个开源强大的科学计算库，或者称科学计算生态系统，包括<strong>Numpy</strong>,<strong>Scipy</strong>,<strong>Ipython</strong>,<strong>matplotlib</strong>,<strong>pandas</strong>以及<strong>sympy</strong>等等，其中只有<strong>sympy</strong>是可以使用代数及其他各种数学符号来作运算的（其他库偏向于各种数据值运算和工程计算），据官方说法，它的开发目标就是成为一个全功能的计算机代数系统，这就比较合纯数学爱好者的口味了。</p>
+<h2 id="安装和导入SymPy"><a class="header-anchor" href="#安装和导入SymPy">¶</a>安装和导入SymPy</h2>
+<p>最好的情形是已安装使用了python的开源发行版<strong>anaconda</strong>，它已经包含了上面提及的所有科学计算库，只需一步升级到最新版本即可，这里使用的版本是1.1.1：</p>
+<p><code>conda update sympy</code></p>
+<p>也可以用python自带的包管理器pip来安装，但是要注意自身python的版本和环境配置，python多版本共存可能造成很大麻烦，建议不要用sudo命令：</p>
+<p><code>python -m pip install --user  sympy</code></p>
+<p>当然还可以用Git或各种系统软件包安装命令来安装，请参考<a target="_blank" rel="noopener" href="http://docs.sympy.org/latest/install.html">官方文档</a></p>
+<p>这里假设已在集成了<strong>jupyter notebook</strong>的<strong>anaconda</strong>环境下，安装完后，打开<strong>jupyter notebook</strong>，输入：</p>
+<p><code>In [1] :from sympy import *</code></p>
+<p>运行后无输出就表示导入成功了。</p>
+<h3 id="提示"><a class="header-anchor" href="#提示">¶</a>提示</h3>
+<ul>
+<li>
+<p>新版的SymPy不包含<strong>mpmath</strong>模块，<strong>mpmath</strong>现在是sympy外部的一个python库，如果想用就pip安装一下。</p>
+</li>
+<li>
+<p>以下代码前面的In序号都是人为假定的，不是notebook的实际单元显示，也没有将输出打印出来。</p>
+</li>
+</ul>
+<h2 id="SymPy笔记摘要"><a class="header-anchor" href="#SymPy笔记摘要">¶</a>SymPy笔记摘要</h2>
+<p>以下示例不采用全部导入包的方法，而是按各类所需分别一一导入，另外，为了让输出美观可以做这一步（在github上其实没必要）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [1]:from sympy import init_printing</span><br><span class="line">       init_printing(use_latex&#x3D;True) </span><br></pre></td></tr></table></figure>
+<h3 id="数值与常数"><a class="header-anchor" href="#数值与常数">¶</a>数值与常数</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">In [2]:from sympy import Rational    #有理数</span><br><span class="line">       a &#x3D; Rational(1,2)</span><br><span class="line">In [3]:from sympy import pi,E,oo,GoldenRatio,I</span><br><span class="line">       complex(pi + E * I)   #用圆周率和自然常数构造一个复数</span><br><span class="line">       GoldenRatio.eval(20)   #输出黄金率的前20位       </span><br><span class="line">In [4]:oo &gt;&#x3D; 999999      #与无穷大比较，输出True</span><br></pre></td></tr></table></figure>
+<h3 id="符号与公式"><a class="header-anchor" href="#符号与公式">¶</a>符号与公式</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">In [5]:from sympy.abc import delta, theta</span><br><span class="line">       from sympy import symbols</span><br><span class="line">       d, e, f &#x3D; symbols(&#39;d:f&#39;) #可以使用区间       </span><br><span class="line">In [6]:from sympy import expand</span><br><span class="line">       x &#x3D; symbols(&quot;x&quot;, real&#x3D;True)</span><br><span class="line">       expand(E**(I*x), complex&#x3D;True)   #欧拉公式</span><br></pre></td></tr></table></figure>
+<h3 id="代数"><a class="header-anchor" href="#代数">¶</a>代数</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">In [7]:from sympy.abc import x, y, z</span><br><span class="line">       from sympy import apart</span><br><span class="line">       apart(x&#x2F;( (x + 2)*(x + 1) ), x) #分解分式，合并用together	</span><br><span class="line">In [8]:expr &#x3D; (1 + x*y)</span><br><span class="line">       expr.subs(&#123;x:pi, y:2&#125;)     #变量代换</span><br><span class="line">In [9]:from sympy import factor</span><br><span class="line">       factor(x**2*z + 4*x*y*z + 4*y**2*z)  #因式分解，展开用expand       </span><br><span class="line">In [10]:from sympy import cancel</span><br><span class="line">        expr &#x3D; (x*y**2 - 2*x*y*z + x*z**2 + y**2 - 2*y*z + z**2)&#x2F;(x**2 - 1)</span><br><span class="line">        cancel(expr)    #通分与约分       </span><br><span class="line">In [11]:from sympy import gcd,lcm</span><br><span class="line">        f,g &#x3D; symbols(&#39;f,g&#39;)</span><br><span class="line">        g &#x3D; 16*x**2</span><br><span class="line">        gcd(f,g)          #多项式的最大公约因子</span><br><span class="line">        lcm(66,242)   #输出最大公倍数726	        </span><br><span class="line">In [12]:from sympy import Poly,roots</span><br><span class="line">        q &#x3D; Poly(2*x**3-2*x**2+x-1)</span><br><span class="line">        roots(q)     #解三次多项式的根        </span><br><span class="line">In [13]:from sympy import chebyshevt</span><br><span class="line">        chebyshevt(4, x)    #切比雪夫多项式</span><br></pre></td></tr></table></figure>
+<h3 id="指数与对数"><a class="header-anchor" href="#指数与对数">¶</a>指数与对数</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">In [14]:from sympy import exp,log</span><br><span class="line">        expand(log(z**4), force&#x3D;True)    #log --&gt; ln        </span><br><span class="line">In [15]:from sympy import powsimp</span><br><span class="line">        z &#x3D; symbols(&#39;z&#39;,real &#x3D; True)</span><br><span class="line">        powsip(E**z*pi**z)    #指数式化简        </span><br><span class="line">In [16]:from sympy import powdenest</span><br><span class="line">        n &#x3D; symbols(&#39;n&#39;,Positive &#x3D;True)</span><br><span class="line">        powdenest(exp(x*log(n)))   #指数换底</span><br></pre></td></tr></table></figure>
+<h3 id="复数"><a class="header-anchor" href="#复数">¶</a>复数</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In [17]:from sympy import Abs,arg，conjugate</span><br><span class="line">        exp(I*x).expand(complex&#x3D;True)  #复数的指数形式</span><br><span class="line">        Abs(1 + I)      #复数的模</span><br><span class="line">        arg（1 + I）   #复数的幅角</span><br><span class="line">        conjugate(1 + I)   #共轭复数</span><br></pre></td></tr></table></figure>
+<h3 id="超越函数"><a class="header-anchor" href="#超越函数">¶</a>超越函数</h3>
+<h4 id="三角函数和反三角函数"><a class="header-anchor" href="#三角函数和反三角函数">¶</a>三角函数和反三角函数</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In [18]:from sympy import sin,cos,tan,asin,acos,atan</span><br><span class="line">        sin(x+y).expand(trig&#x3D;True)    #两角和的三角公式</span><br><span class="line">        sin(x).rewrite(exp(x))    #三角函数的复指数形式</span><br><span class="line">        (asin(x) + acos(x)).rewrite(log(x))  #余角关系式</span><br><span class="line">        sin(atan(x))     #x&#x2F;sqrt(x**2+1)</span><br></pre></td></tr></table></figure>
+<h4 id="双曲函数与反双曲函数"><a class="header-anchor" href="#双曲函数与反双曲函数">¶</a>双曲函数与反双曲函数</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">In [19]:from sympy import sinh,cosh,tanh,coth,expand_trig,trigsimp</span><br><span class="line">        (sinh(x)).rewrite(exp(x))       #定义式</span><br><span class="line">        expand_trig(cosh(2*x))      #二倍角双曲公式        </span><br><span class="line">In [20]:from sympy import asinh,acosh，atanh</span><br><span class="line">        (asinh(x)).rewrite(log(x))</span><br><span class="line">        asinh(I*x)    #与三角函数的关系式</span><br></pre></td></tr></table></figure>
+<h4 id="朗伯W函数"><a class="header-anchor" href="#朗伯W函数">¶</a>朗伯W函数</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [21]:from sympy import LambertW</span><br><span class="line">        LambertW(1).evalf()      #欧米加常数</span><br></pre></td></tr></table></figure>
+<h4 id="狄拉克函数和阶跃函数"><a class="header-anchor" href="#狄拉克函数和阶跃函数">¶</a>狄拉克函数和阶跃函数</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [22]:from sympy import Heaviside, diff，DiracDelta</span><br><span class="line">        Heaviside(x).fdiff()    #得到狄拉克函数</span><br></pre></td></tr></table></figure>
+<h4 id="阶乘和Gamma函数"><a class="header-anchor" href="#阶乘和Gamma函数">¶</a>阶乘和Gamma函数</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">In [23]:from sympy import factorial, gamma,digamma,polygamma</span><br><span class="line">        from sympy import simplify,expand_func</span><br><span class="line">        n &#x3D; symbols(&quot;n&quot;, integer&#x3D;True)</span><br><span class="line">        gamma(1&#x2F;2)           #正的圆周率开方</span><br><span class="line">        simplify(gamma(x)&#x2F;gamma(x - 2))   #&#x3D;&gt;(x-2)*(x-1)</span><br><span class="line">        gamma(n).rewrite(factorial)    #&#x3D;&gt;(n-1)!</span><br><span class="line">        expand_func(gamma(n+3))    #特殊函数的一些性质</span><br><span class="line">        diff(log(gamma(x)))             #即polygamma(0,x)即digamma(x)</span><br><span class="line">        digamma(1)                     #负的欧拉常数</span><br></pre></td></tr></table></figure>
+<h4 id="黎曼Zeta函数"><a class="header-anchor" href="#黎曼Zeta函数">¶</a>黎曼Zeta函数</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [24]:from sympy import dirichlet_eta, zeta</span><br><span class="line">        from sympy.abc import s</span><br><span class="line">        dirichlet_eta(s).rewrite(zeta)      #与狄里克雷函数的关系</span><br><span class="line">        zeta(2)                             #六分之一圆周率的平方</span><br></pre></td></tr></table></figure>
+<h4 id="贝赛尔函数"><a class="header-anchor" href="#贝赛尔函数">¶</a>贝赛尔函数</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [25]:from sympy import besselj,bessly,jn</span><br><span class="line">        from sympy.abc import z, n</span><br><span class="line">        expand_func(jn(1, z))      #一阶第一类贝赛尔函数</span><br><span class="line">        jn(n, z).rewrite(besselj)</span><br></pre></td></tr></table></figure>
+<h3 id="组合论"><a class="header-anchor" href="#组合论">¶</a>组合论</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">In [26]:from sympy import bell,bernoulli,binomial,catalan,fibonacci,harmonic</span><br><span class="line">        [bell(n) for n in range(11)]	#贝尔数列</span><br><span class="line">        [bernoulli(n) for n in range(11)]#伯努利数</span><br><span class="line">In [27]:for N in range(8):</span><br><span class="line">...     print([ binomial(N, i) for i in range(N + 1)])#杨辉三角</span><br><span class="line">In [28]:catalan(n).rewrite(binomial) #卡特兰数</span><br><span class="line">In [29]:from sympy import combsimp</span><br><span class="line">        combsimp(gamma(x)*gamma(1 - x))  #化简组合式</span><br><span class="line">In [30]:[fibonacci(x) for x in range(11)] #斐波那契数列</span><br></pre></td></tr></table></figure>
+<h3 id="微积分"><a class="header-anchor" href="#微积分">¶</a>微积分</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">In [31]:from sympy import limit,integrate,Integral,diff,delta,Derivative</span><br><span class="line">        limit(sin(x)&#x2F;x, x, 0)    #&#x3D;&gt;1</span><br><span class="line">        limit((1+1&#x2F;n)**n,n,oo)     #&#x3D;&gt;e 这是两个重要极限</span><br><span class="line">        diff(tan(x), x)</span><br><span class="line">        limit((tan(x + delta) - tan(x))&#x2F;delta, delta, 0) #检验上式</span><br><span class="line">        diff(sin(2*x), x, 2)  #二次求导</span><br><span class="line">        expr &#x3D; exp(x*y*z)</span><br><span class="line">        Derivative(expr,x,1).doit()  #偏微分</span><br><span class="line">        integrate(exp(-x**2 - y**2), (x, -oo, oo), (y, -oo, oo))#二重积分</span><br><span class="line">In [32]:from sympy import laplace_transform,fourier_transform</span><br><span class="line">        from sympy.abc import t, s, a</span><br><span class="line">        laplace_transform(t**a, t, s)   #拉普拉斯变换</span><br><span class="line">        fourier_transform(exp(-x**2), x, k)    #傅里叶变换</span><br><span class="line">In [33]:from sympy.integrals.quadrature import gauss_legendre</span><br><span class="line">        x, w &#x3D; gauss_legendre(3, 5)  #高斯-勒朗德定积分</span><br><span class="line">In [34]:from sympy import Curve, line_integrate, E, ln</span><br><span class="line">        from sympy.abc import x, y, t</span><br><span class="line">        C &#x3D; Curve([E**t + 1, E**t - 1], (t, 0, ln(2)))</span><br><span class="line">        line_integrate(x + y, C, [x, y])   #曲线积分</span><br></pre></td></tr></table></figure>
+<h3 id="级数"><a class="header-anchor" href="#级数">¶</a>级数</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [35]:cos(x).series(x, 0, 10)    #选取原点与最高到10次项</span><br><span class="line">In [36]:from sympy import fourier_series</span><br><span class="line">        s &#x3D; fourier_series(x**2, (x, -pi, pi))  #傅里叶级数</span><br><span class="line">        s.scale(2).truncate()</span><br></pre></td></tr></table></figure>
+<h3 id="数理逻辑"><a class="header-anchor" href="#数理逻辑">¶</a>数理逻辑</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In [37]:(y &amp; x).subs(&#123;x: True, y: True&#125;)  #&#x3D;&gt;True</span><br><span class="line">In [38]:from sympy import Or,Xor,Not,And,Nand,Nor,ITE</span><br><span class="line">        Xor(x, y).subs(x, 0)</span><br><span class="line">        Not(And(Or(a, n), Or(~a, ~n)))</span><br><span class="line">        ITE(False, x, y)     #&#x3D;&gt;y</span><br></pre></td></tr></table></figure>
+<h3 id="解方程"><a class="header-anchor" href="#解方程">¶</a>解方程</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">In [39]:from sympy import solveset,Eq,solve</span><br><span class="line">        solveset(Eq(x**2 - 1, 0), x)    #解一元二次方程</span><br><span class="line">        from sympy import S</span><br><span class="line">        solveset(sin(x) - 1, x, domain&#x3D;S.Reals)</span><br><span class="line">        solve(x*exp(x) - 1, x )  &#x3D;&gt;LambertW(1)</span><br><span class="line">In [40]:from sympy import Function,dsolve</span><br><span class="line">        diffeq &#x3D; Eq(f(x).diff(x, x) - 2*f(x).diff(x) + f(x), sin(x))</span><br><span class="line">        dsolve(diffeq, f(x))   #解ODE</span><br><span class="line">In[41]: from sympy import diophantine</span><br><span class="line">        diophantine(3*x**2 - 6*x*y + 3*y**2 - 3*x + 7*y - 5)  #解丢番图方程</span><br></pre></td></tr></table></figure>
+<h3 id="线性代数"><a class="header-anchor" href="#线性代数">¶</a>线性代数</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">In [42]:from sympy.matrices import Matrix,eye,ones,zeros,diag</span><br><span class="line">        Matrix(3, 4, lambda i,j: 1 - (i+j) % 2)</span><br><span class="line">        eye(3).det()     #单位矩阵的行列式值等于1</span><br><span class="line">In [43]:v1 &#x3D; Matrix([1,2,3])   #列向量</span><br><span class="line">        v2 &#x3D; Matrix([4,5,6])</span><br><span class="line">        v1.dot(v1.cross(v2))      #&#x3D;&gt;0,由于向量外积垂直于两向量</span><br><span class="line">In [44]:M &#x3D; Matrix([[1, 2, 3], [3, 6, 2], [2, 0, 1]])</span><br><span class="line">        M.inv(Method &#x3D; &#39;LU&#39;)     #逆矩阵</span><br><span class="line">        M.T                            #转置矩阵</span><br><span class="line">        M.eigenvects(),M.eigenvals()   #特征值与特征向量</span><br><span class="line">        Q, R &#x3D; M.QRdecomposition()   #QR分解</span><br><span class="line">In [45]:from sympy.matrices import GramSchmidt</span><br><span class="line">        L &#x3D; [Matrix([2,3,5]), Matrix([3,6,2]), Matrix([8,3,6])]</span><br><span class="line">        out &#x3D; GramSchmidt(L,True)   #归一化的格拉姆-施密特正交化</span><br><span class="line">        out[0].dot(out[2])   &#x3D;&gt;0    #正交</span><br><span class="line">        out[1].norm()         &#x3D;&gt;1      #归一化</span><br></pre></td></tr></table></figure>
+<h3 id="概率论"><a class="header-anchor" href="#概率论">¶</a>概率论</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In[46]:from sympy.stats import Normal,density,E,std</span><br><span class="line">        z,mu,sigma &#x3D; symbols(&#39;z,mu,sigma&#39;)</span><br><span class="line">        X &#x3D; Normal(&#39;x&#39;,mu,sigma)     #正态分布</span><br><span class="line">        density(X)(z)            #概率密度函数</span><br><span class="line">        E(z),std(z)                #数学期望和标准差</span><br></pre></td></tr></table></figure>
+<h3 id="数论"><a class="header-anchor" href="#数论">¶</a>数论</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">In [47]:from sympy import sieve</span><br><span class="line">        print([i for i in sieve.primerange(7, 39)])  #筛法求素数</span><br><span class="line">In [48]:from sympy import factorint</span><br><span class="line">        factorint(100)    #分解质因数</span><br><span class="line">In [49]:from sympy import totient</span><br><span class="line">        totient(10)     #&#x3D;&gt;4   欧拉函数</span><br><span class="line">In [50]:from sympy.ntheory.modular import crt, solve_congruence</span><br><span class="line">        crt([3,5,7],[2,3,2]),[23 % m for m in [3, 5, 7]]  #中国剩余定理</span><br><span class="line">        solve_congruence(*zip((2, 3, 2), (3, 5, 7)))</span><br><span class="line">In [51]:from sympy import binomial_coefficients_list</span><br><span class="line">        binomial_coefficients_list(9)    #二项式系数</span><br><span class="line">In [52]:from sympy import npartitions</span><br><span class="line">        npartitions(10)         #整数分拆</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/markdown/" rel="tag"># markdown</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/04/07/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2/" rel="prev" title="搭建托管在Github上的Hexo博客">
+      <i class="fa fa-chevron-left"></i> 搭建托管在Github上的Hexo博客
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/03/15/%E9%80%9A%E8%BF%87%E7%89%A9%E7%90%86%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B%E8%B5%B0%E9%80%9A%E7%94%B5%E7%A3%81%E5%9C%BA%E8%BF%B7%E5%AE%AB%E7%9A%84%E5%B0%9D%E8%AF%95/" rel="next" title="通过物理数学模型走通电磁场迷宫的尝试">
+      通过物理数学模型走通电磁场迷宫的尝试 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E4%BD%BF%E7%94%A8SymPy"><span class="nav-number">2.</span> <span class="nav-text">选择使用SymPy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E5%AF%BC%E5%85%A5SymPy"><span class="nav-number">3.</span> <span class="nav-text">安装和导入SymPy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA"><span class="nav-number">3.1.</span> <span class="nav-text">提示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SymPy%E7%AC%94%E8%AE%B0%E6%91%98%E8%A6%81"><span class="nav-number">4.</span> <span class="nav-text">SymPy笔记摘要</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%80%BC%E4%B8%8E%E5%B8%B8%E6%95%B0"><span class="nav-number">4.1.</span> <span class="nav-text">数值与常数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%A6%E5%8F%B7%E4%B8%8E%E5%85%AC%E5%BC%8F"><span class="nav-number">4.2.</span> <span class="nav-text">符号与公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E6%95%B0"><span class="nav-number">4.3.</span> <span class="nav-text">代数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E6%95%B0%E4%B8%8E%E5%AF%B9%E6%95%B0"><span class="nav-number">4.4.</span> <span class="nav-text">指数与对数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E6%95%B0"><span class="nav-number">4.5.</span> <span class="nav-text">复数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B6%85%E8%B6%8A%E5%87%BD%E6%95%B0"><span class="nav-number">4.6.</span> <span class="nav-text">超越函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E5%92%8C%E5%8F%8D%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0"><span class="nav-number">4.6.1.</span> <span class="nav-text">三角函数和反三角函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8C%E6%9B%B2%E5%87%BD%E6%95%B0%E4%B8%8E%E5%8F%8D%E5%8F%8C%E6%9B%B2%E5%87%BD%E6%95%B0"><span class="nav-number">4.6.2.</span> <span class="nav-text">双曲函数与反双曲函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%97%E4%BC%AFW%E5%87%BD%E6%95%B0"><span class="nav-number">4.6.3.</span> <span class="nav-text">朗伯W函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8B%84%E6%8B%89%E5%85%8B%E5%87%BD%E6%95%B0%E5%92%8C%E9%98%B6%E8%B7%83%E5%87%BD%E6%95%B0"><span class="nav-number">4.6.4.</span> <span class="nav-text">狄拉克函数和阶跃函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%B6%E4%B9%98%E5%92%8CGamma%E5%87%BD%E6%95%B0"><span class="nav-number">4.6.5.</span> <span class="nav-text">阶乘和Gamma函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%BB%8E%E6%9B%BCZeta%E5%87%BD%E6%95%B0"><span class="nav-number">4.6.6.</span> <span class="nav-text">黎曼Zeta函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B4%9D%E8%B5%9B%E5%B0%94%E5%87%BD%E6%95%B0"><span class="nav-number">4.6.7.</span> <span class="nav-text">贝赛尔函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E8%AE%BA"><span class="nav-number">4.7.</span> <span class="nav-text">组合论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E7%A7%AF%E5%88%86"><span class="nav-number">4.8.</span> <span class="nav-text">微积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%A7%E6%95%B0"><span class="nav-number">4.9.</span> <span class="nav-text">级数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91"><span class="nav-number">4.10.</span> <span class="nav-text">数理逻辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E6%96%B9%E7%A8%8B"><span class="nav-number">4.11.</span> <span class="nav-text">解方程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0"><span class="nav-number">4.12.</span> <span class="nav-text">线性代数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E8%AE%BA"><span class="nav-number">4.13.</span> <span class="nav-text">概率论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E8%AE%BA"><span class="nav-number">4.14.</span> <span class="nav-text">数论</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Chain Xueliang"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Chain Xueliang</p>
+  <div class="site-description" itemprop="description">1-1+1-1+1-1+1-1+...</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qxliang2014" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qxliang2014" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:hafu2008@163.com" title="E-Mail → mailto:hafu2008@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chain Xueliang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">24k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">22 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
